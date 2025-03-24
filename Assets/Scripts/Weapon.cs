@@ -5,6 +5,10 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] int damagePerBullet = 1;
     [SerializeField] ParticleSystem muzzleFlash;
+    [SerializeField] GameObject hitVFXPrefab;
+    [SerializeField] Animator animator;
+
+    const string SHOOT_STRING = "Shoot";
 
     StarterAssetsInputs starterAssetsInputs;
 
@@ -25,16 +29,23 @@ public class Weapon : MonoBehaviour
             return;
 
         muzzleFlash.Play();
+        animator.Play(SHOOT_STRING, 0, 0f);
+        starterAssetsInputs.ShootInput(false);
 
         RaycastHit hit;
 
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity))
         {
 
+            Vector3 hitSpawnPos = hit.point;
+
+            GameObject hitVFXGO = Instantiate(hitVFXPrefab, hitSpawnPos, Quaternion.identity);
+
             EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
             enemyHealth?.TakeDamage(damagePerBullet);
 
-            starterAssetsInputs.ShootInput(false);
+            
+
 
             // Below was my implementation for the same solution
             // this works, however to keep consistent with the course I have commented it out
