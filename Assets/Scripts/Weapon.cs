@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [SerializeField] WeaponSO weaponSO;
     [SerializeField] int damagePerBullet = 1;
     [SerializeField] ParticleSystem muzzleFlash;
     [SerializeField] GameObject hitVFXPrefab;
@@ -42,7 +43,7 @@ public class Weapon : MonoBehaviour
             GameObject hitVFXGO = Instantiate(hitVFXPrefab, hitSpawnPos, Quaternion.identity);
 
             EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
-            enemyHealth?.TakeDamage(damagePerBullet);
+            enemyHealth?.TakeDamage(weaponSO.Damage);
 
             
 
