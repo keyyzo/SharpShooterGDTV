@@ -34,6 +34,11 @@ public class ActiveWeapon : MonoBehaviour
 
     }
 
+    public void SwitchWeapon(WeaponSO weaponPickedUp)
+    {
+        Debug.Log("Picked up " + weaponPickedUp.name);
+    }
+
     private void HandleShoot()
     {
         if (!starterAssetsInputs.shoot)
@@ -48,8 +53,13 @@ public class ActiveWeapon : MonoBehaviour
             
         }
 
+        if (!weaponSO.IsAutomatic)
+        {
+            starterAssetsInputs.ShootInput(false);
+        }
 
-        starterAssetsInputs.ShootInput(false);
+
+       
 
     }
 
@@ -69,4 +79,6 @@ public class ActiveWeapon : MonoBehaviour
             Debug.Log("Can Shoot!");
         }
     }
+
+    
 }
