@@ -31,6 +31,7 @@ public class ActiveWeapon : MonoBehaviour
     {
         HandleShoot();
         HandleFireRate();
+        HandleZoom();
 
     }
 
@@ -70,6 +71,22 @@ public class ActiveWeapon : MonoBehaviour
 
        
 
+    }
+
+    void HandleZoom()
+    {
+        if (!weaponSO.CanZoom)
+            return;
+
+        if (starterAssetsInputs.zoom)
+        {
+            Debug.Log("Zooming in");
+        }
+
+        else
+        {
+            Debug.Log("Not Zooming");
+        }
     }
 
     void HandleFireRate()
