@@ -4,6 +4,7 @@ public class Weapon : MonoBehaviour
 {
     
     [SerializeField] ParticleSystem muzzleFlash;
+    [SerializeField] LayerMask interactionLayers;
 
     public void Shoot(WeaponSO weaponSO)
     {
@@ -12,7 +13,7 @@ public class Weapon : MonoBehaviour
        
         RaycastHit hit;
 
-        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity))
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity, interactionLayers, QueryTriggerInteraction.Ignore))
         {
 
 
