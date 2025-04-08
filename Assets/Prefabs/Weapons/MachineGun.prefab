@@ -82,8 +82,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 5889790621670791889}
   interactionLayers:
     serializedVersion: 2
-    m_Bits: 1
-  impulseSource: {fileID: 8401714611077025398}
+    m_Bits: 65
 --- !u!114 &8401714611077025398
 MonoBehaviour:
   m_ObjectHideFlags: 0

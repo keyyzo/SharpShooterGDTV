@@ -107,7 +107,7 @@ public class ActiveWeapon : MonoBehaviour
 
         if (starterAssetsInputs.zoom)
         {
-            Debug.Log("Zooming in");
+            //Debug.Log("Zooming in");
 
             virtualCamera.m_Lens.FieldOfView = currentWeaponSO.ZoomAmount;
             weaponCamera.fieldOfView = currentWeaponSO.ZoomAmount;
@@ -118,7 +118,7 @@ public class ActiveWeapon : MonoBehaviour
 
         else
         {
-            Debug.Log("Not Zooming");
+            //Debug.Log("Not Zooming");
 
             virtualCamera.m_Lens.FieldOfView = defaultFOV;
             weaponCamera.fieldOfView = defaultFOV;
@@ -132,7 +132,7 @@ public class ActiveWeapon : MonoBehaviour
         if (!canShoot)
         {
             shootTimer += Time.deltaTime;
-            Debug.Log("Chambering...");
+            //Debug.Log("Chambering...");
         }
         
 
@@ -140,7 +140,7 @@ public class ActiveWeapon : MonoBehaviour
         {
             canShoot = true;
             shootTimer = 0.0f;
-            Debug.Log("Can Shoot!");
+           // Debug.Log("Can Shoot!");
         }
     }
 

@@ -35,15 +35,16 @@ public class Weapon : MonoBehaviour
             EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
             enemyHealth?.TakeDamage(weaponSO.Damage);
 
-            
+
 
 
             // Below was my implementation for the same solution
             // this works, however to keep consistent with the course I have commented it out
 
             //if (hit.collider.TryGetComponent(out EnemyHealth enemy))
-            //{ 
+            //{
             //    enemy.TakeDamage(damagePerBullet);
+            //    Debug.Log("Enemy hit");
             //}
         }
     }

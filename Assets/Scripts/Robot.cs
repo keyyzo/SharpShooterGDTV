@@ -9,6 +9,7 @@ public class Robot : MonoBehaviour
 
     NavMeshAgent agent;
 
+    const string PLAYER_STRING = "Player";
 
     private void Awake()
     {
@@ -25,5 +26,14 @@ public class Robot : MonoBehaviour
     void Update()
     {
         agent.SetDestination(playerObject.transform.position);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(PLAYER_STRING))
+        { 
+            EnemyHealth enemyHealth = GetComponent<EnemyHealth>();
+            enemyHealth.SelfDestruct();
+        }
     }
 }
