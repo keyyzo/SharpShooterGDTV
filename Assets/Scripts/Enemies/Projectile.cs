@@ -32,17 +32,14 @@ public class Projectile : MonoBehaviour
         damageToPlayer = damage;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        //if (other.CompareTag(PLAYER_STRING))
-        //{
-        //    player?.TakeDamage(damageToPlayer);
+        if (other.CompareTag(PLAYER_STRING))
+        {
+            PlayerHealth player = other.GetComponent<PlayerHealth>();
+            player?.TakeDamage(damageToPlayer);
 
-        //}
-
-        PlayerHealth player = other.GetComponent<PlayerHealth>();
-        player?.TakeDamage(damageToPlayer);
-
+        }
 
 
         Destroy(this.gameObject);
