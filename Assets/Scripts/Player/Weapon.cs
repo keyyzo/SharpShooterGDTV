@@ -32,7 +32,7 @@ public class Weapon : MonoBehaviour
 
             GameObject hitVFXGO = Instantiate(weaponSO.HitVFXPrefab, hitSpawnPos, Quaternion.identity);
 
-            EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
+            EnemyHealth enemyHealth = hit.collider.GetComponentInParent<EnemyHealth>();
             enemyHealth?.TakeDamage(weaponSO.Damage);
 
 
