@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    [SerializeField] GameObject projectileHitVFX;
     [SerializeField] float projectileSpeed = 5.0f;
     int damageToPlayer = 2;
 
@@ -41,7 +42,7 @@ public class Projectile : MonoBehaviour
 
         }
 
-
+        Instantiate(projectileHitVFX, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
 
