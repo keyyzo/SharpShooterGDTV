@@ -1,4 +1,5 @@
 using Cinemachine;
+using StarterAssets;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera deathVirtualCamera;
     [SerializeField] Transform weaponCameraTransform;
     [SerializeField] Image[] shieldBars;
+    [SerializeField] GameObject gameOverContainer;
+    [SerializeField] GameObject playerCrosshair;
 
     int currentHealth;
     int gameOverVirtualCameraPriority = 20;
@@ -28,11 +31,20 @@ public class PlayerHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            weaponCameraTransform.parent = null;
-            deathVirtualCamera.Priority = gameOverVirtualCameraPriority;
-            Destroy(this.gameObject);
-            Debug.Log("Player has died!");
+            PlayerGameOver();
         }
+    }
+
+    private void PlayerGameOver()
+    {
+        weaponCameraTransform.parent = null;
+        deathVirtualCamera.Priority = gameOverVirtualCameraPriority;
+        gameOverContainer.gameObject.SetActive(true);
+        playerCrosshair.gameObject.SetActive(false);
+        StarterAssetsInputs starterAssetsInputs = FindFirstObjectByType<StarterAssetsInputs>();
+        starterAssetsInputs.SetCursorState(false);
+        Destroy(this.gameObject);
+        Debug.Log("Player has died!");
     }
 
     void AdjustHealthUI()
