@@ -85,7 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyRobotPrefab: {fileID: 3072523848094895344, guid: fb0abcf7fa4001d43b0e914f6b29be47, type: 3}
   spawnPoint: {fileID: 3856208236747912924}
-  timeToSpawn: 5
+  timeToSpawn: 15
 --- !u!1 &6029270800712958232
 GameObject:
   m_ObjectHideFlags: 0
