@@ -13,10 +13,14 @@ public class Turret : MonoBehaviour
     [SerializeField] int damage = 2;
 
     PlayerHealth player;
+    GameObject playerTarget;
+
+    const string PLAYER_CAMERA_TARGET = "CinemachineTarget";
 
     private void Start()
     {
         player = FindFirstObjectByType<PlayerHealth>();
+        playerTarget = GameObject.FindGameObjectWithTag(PLAYER_CAMERA_TARGET);
 
         FireProjectile();
     }
@@ -28,7 +32,8 @@ public class Turret : MonoBehaviour
 
     void LookAtPlayer()
     { 
-        turretHead.LookAt(playerTargetPoint);
+        if(player && playerTarget)
+            turretHead.LookAt(playerTarget.transform);
     }
 
     void FireProjectile()
@@ -42,7 +47,11 @@ public class Turret : MonoBehaviour
         {
             yield return new WaitForSeconds(fireRate);
             Projectile newProjectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity).GetComponent<Projectile>();
-            newProjectile.transform.LookAt(playerTargetPoint);
+            if (playerTarget)
+            {
+                newProjectile.transform.LookAt(playerTarget.transform);
+            }
+            
             newProjectile.Init(damage);
         }
     }

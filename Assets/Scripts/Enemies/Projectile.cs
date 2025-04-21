@@ -33,6 +33,18 @@ public class Projectile : MonoBehaviour
         damageToPlayer = damage;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        //if (other.CompareTag(PLAYER_STRING))
+        //{
+        //    PlayerHealth player = other.GetComponent<PlayerHealth>();
+        //    player?.TakeDamage(damageToPlayer);
+
+        //}
+
+        //Instantiate(projectileHitVFX, transform.position, Quaternion.identity);
+        //Destroy(this.gameObject);
+    }
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag(PLAYER_STRING))
@@ -45,5 +57,7 @@ public class Projectile : MonoBehaviour
         Instantiate(projectileHitVFX, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
+
+
 
 }
