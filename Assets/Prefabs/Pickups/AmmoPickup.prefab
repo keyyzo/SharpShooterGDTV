@@ -106,6 +106,8 @@ MonoBehaviour:
   cooldownTimerLength: 60
   cooldownText: 'Ammo available in: '
   cooldownTMP: {fileID: 1613866482227835540}
+  opaqueMat: {fileID: -4803449312067332711, guid: 87bf0ea75b848474b9682c8ff1993ed2, type: 3}
+  transparentMat: {fileID: 2100000, guid: 26c4223f469b93b458da3b7c1b520270, type: 2}
   ammoAmount: 100
 --- !u!1 &3139796877819303898
 GameObject:
@@ -331,6 +333,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 87bf0ea75b848474b9682c8ff1993ed2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -4803449312067332711, guid: 87bf0ea75b848474b9682c8ff1993ed2, type: 3}
     - target: {fileID: -7511558181221131132, guid: 87bf0ea75b848474b9682c8ff1993ed2, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 

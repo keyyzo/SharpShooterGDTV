@@ -9,6 +9,9 @@ public abstract class Pickup : MonoBehaviour
     [SerializeField] string cooldownText = "Pickup available in: ";
     [SerializeField] TMP_Text cooldownTMP;
 
+    [SerializeField] Material opaqueMat;
+    [SerializeField] Material transparentMat;
+
     protected const string PLAYER_STRING = "Player";
 
     protected bool isOnCooldown = false;
@@ -21,7 +24,6 @@ public abstract class Pickup : MonoBehaviour
     private void Awake()
     {
         meshRenderer = GetComponentInChildren<MeshRenderer>();
-        material = GetComponentInChildren<MeshRenderer>().material;
         playerObj = GameObject.FindGameObjectWithTag(PLAYER_STRING);
     }
 
@@ -38,8 +40,7 @@ public abstract class Pickup : MonoBehaviour
             ActiveWeapon activeWeapon = other.GetComponentInChildren<ActiveWeapon>();
             OnPickup(activeWeapon);
             cooldownTMP.gameObject.SetActive(true);
-            meshRenderer.material.color = new Color(1.0f, 1.0f, 1.0f, 0.25f);
-            material.color = new Color(1.0f,1.0f,1.0f, 0.5f);
+            meshRenderer.material = transparentMat;
 
             cooldownTimer = cooldownTimerLength;
             isOnCooldown = true;
@@ -69,6 +70,7 @@ public abstract class Pickup : MonoBehaviour
         {
             isOnCooldown = false;
             cooldownTimer = 0.0f;
+            meshRenderer.material = opaqueMat;
             cooldownTMP.gameObject.SetActive(false);
         }
     }

@@ -282,6 +282,8 @@ MonoBehaviour:
   cooldownTimerLength: 60
   cooldownText: 'Pickup available in: '
   cooldownTMP: {fileID: 655362374328796612}
+  opaqueMat: {fileID: -4803449312067332711, guid: 87bf0ea75b848474b9682c8ff1993ed2, type: 3}
+  transparentMat: {fileID: 2100000, guid: 26c4223f469b93b458da3b7c1b520270, type: 2}
   weaponSO: {fileID: 0}
 --- !u!1 &8878749115793720254
 GameObject:
