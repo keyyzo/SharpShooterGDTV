@@ -86,6 +86,10 @@ PrefabInstance:
       propertyPath: weaponSO
       value: 
       objectReference: {fileID: 11400000, guid: b5634d34ef54b4b46a383b1a759420a2, type: 2}
+    - target: {fileID: 2335786614669959190, guid: f4a36ac80b7aff14e9625e4e3dede672, type: 3}
+      propertyPath: cooldownText
+      value: 'Pistol available in: '
+      objectReference: {fileID: 0}
     - target: {fileID: 4931040849484192421, guid: f4a36ac80b7aff14e9625e4e3dede672, type: 3}
       propertyPath: m_LocalPosition.x
       value: 82.728424
